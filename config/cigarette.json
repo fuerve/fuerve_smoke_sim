@@ -1,0 +1,65 @@
+{
+  "runtime": {
+    "arch": "vulkan",
+    "seed": 7
+  },
+  "output": {
+    "out": "out/final",
+    "frames": 300,
+    "fps": 24,
+    "width": 320,
+    "height": 320
+  },
+  "simulation": {
+    "grid": 44,
+    "ray_steps": 84,
+    "substeps": 2,
+    "dt": 0.43,
+    "pressure_iters": 30,
+    "density_decay": 0.9995,
+    "temp_decay": 0.997,
+    "velocity_decay": 0.997
+  },
+  "loop": {
+    "loop_start_empty": true,
+    "emit_ratio": 0.8,
+    "auto_tail": true,
+    "tail_max_ratio": 0.2,
+    "tail_min_ratio": 0.2,
+    "tail_threshold": 0.02
+  },
+  "blackout": {
+    "blackout_head_ratio": 0.04,
+    "blackout_tail_ratio": 0.18,
+    "blackout_curve": 1.6
+  },
+  "source": {
+    "source_density": 2.0,
+    "source_temp": 2.2,
+    "source_updraft": 2.8,
+    "source_jitter": 0.03
+  },
+  "flow": {
+    "ambient_drift": 0.008,
+    "ambient_strength": 1.1,
+    "buoyancy": 1.9,
+    "thermal_buoyancy": 0.5,
+    "vorticity": 1.05,
+    "snake_strength": 0.135,
+    "snake_speed": 0.95,
+    "snake_wavelength": 0.24,
+    "strand_strength": 1.25,
+    "top_calm": 0.72,
+    "top_dissipation": 0.04
+  },
+  "render": {
+    "extinction": 2.3,
+    "shadow": 4.2,
+    "orbit": 0.14,
+    "bg_solid": [0, 0, 0],
+    "vignette": 0.0
+  },
+  "media": {
+    "gif_profiles": ["discord", "facebook"]
+  }
+}
