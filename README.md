@@ -14,7 +14,7 @@ Offline 3D smoke simulation and volumetric rendering aimed at believable point-s
 ## Quick Start
 
 ```bash
-cd /home/lparker/git/fuerve/smoke_sim
+cd /home/lparker/git/fuerve/fuerve_smoke_sim
 make all
 ```
 
