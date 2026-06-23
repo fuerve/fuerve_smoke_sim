@@ -93,6 +93,7 @@ Cross-platform task runner:
 - `python3 run.py all` renders once, then writes both `mp4` and `gif`.
 - `python3 run.py update` same as `all`.
 - `python3 run.py clean` deletes `out/` and `.venv/`.
+- `python3 run.py doctor` prints a health report (python, venv/deps, ffmpeg, Taichi backends).
 
 `make` equivalents are still available:
 
