@@ -11,14 +11,53 @@ Offline 3D smoke simulation and volumetric rendering aimed at believable point-s
 - Defaults to a Taichi engine (`main_taichi.py`) that can run on GPU.
 - Uses system `ffmpeg` when available, otherwise falls back to `imageio-ffmpeg` from the venv.
 
-## Quick Start
+## Setup
+
+Use one of these setup paths first.
+
+Linux/macOS (bash):
 
 ```bash
 cd /home/lparker/git/fuerve/fuerve_smoke_sim
-make all
+./scripts/setup.sh
 ```
 
-This bootstraps a local `.venv/` and installs dependencies automatically.
+Windows (CMD):
+
+```bat
+cd C:\path\to\fuerve_smoke_sim
+scripts\setup.cmd
+```
+
+If Python 3 is missing:
+
+- Ubuntu/Debian: `sudo apt update && sudo apt install -y python3 python3-venv python3-pip`
+- macOS (Homebrew): `brew install python`
+- Windows (winget): `winget install -e --id Python.Python.3.12`
+
+`make` is optional now. If you want it anyway:
+
+- Ubuntu/Debian: `sudo apt install -y make`
+- macOS (Homebrew): `brew install make`
+- Windows: use Git Bash or run without `make` via `run.py`.
+
+## Quick Start
+
+No-`make` cross-platform path:
+
+```bash
+cd /home/lparker/git/fuerve/fuerve_smoke_sim
+python3 run.py all
+```
+
+Windows equivalent:
+
+```bat
+cd C:\path\to\fuerve_smoke_sim
+py -3 run.py all
+```
+
+If you prefer `make`, existing targets still work (`make all`, `make update`, etc.).
 
 Engine options:
 
@@ -44,12 +83,20 @@ The sample config emits both Discord and Facebook GIF variants by default.
 
 ## Build Targets
 
-- `make frames` renders PNG frames only.
-- `make mp4` encodes `$(OUT)/smoke.mp4` from existing frames.
-- `make gif` encodes `$(OUT)/smoke.gif` from existing frames.
-- `make all` renders once, then writes both `mp4` and `gif`.
-- `make update` alias for `make all` (overwrite refresh).
-- `make clean` deletes `out/` and `.venv/`.
+Cross-platform task runner:
+
+- `python3 run.py venv` creates `.venv` only.
+- `python3 run.py deps` installs requirements into `.venv`.
+- `python3 run.py frames` renders PNG frames only.
+- `python3 run.py mp4` renders frames then writes `smoke.mp4`.
+- `python3 run.py gif` renders frames then writes GIF output(s).
+- `python3 run.py all` renders once, then writes both `mp4` and `gif`.
+- `python3 run.py update` same as `all`.
+- `python3 run.py clean` deletes `out/` and `.venv/`.
+
+`make` equivalents are still available:
+
+- `make frames`, `make mp4`, `make gif`, `make all`, `make update`, `make clean`
 
 All ffmpeg commands run with `-y`, so media outputs are overwritten.
 
